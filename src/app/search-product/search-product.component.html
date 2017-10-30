@@ -1,0 +1,44 @@
+
+
+
+
+<nav aria-label="breadcrumb" role="navigation" style="margin-top: 1%;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="search">Produits</a></li>
+  </ol>
+</nav>
+
+
+
+
+
+  <div class="row">
+
+
+  <div  *ngFor="let prod of Products"  class="col-sm-4">
+  <img class="card-img-top" width="50" height="300" src="./assets/image/{{prod.picture}}" alt="image">
+  <div class="card-body bg-light">
+    <h4 class="card-title">{{ prod.name }} </h4>
+    <p class="card-text" Style="height: 100px;">  {{ prod.description }}         </p>
+    <p class="card-text"> Compris entre <span class="badge badge-dark">  {{ prod.prixmin }} € </span> & <span class="badge badge-danger">{{ prod.prixmax }} €  </span>   <a href="#" class="pull-right"> <i class="fa fa-plus-square fa-2x" Style="color: #66c0b7;" aria-hidden="true"></i> </a>  </p>
+
+  </div>
+  <div class="card-footer text-muted">
+    Publier il y a 2 jours by {{ prod.idus }}.
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
