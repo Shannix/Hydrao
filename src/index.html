@@ -8,24 +8,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
+  <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/font-awesome-4.7/css/font-awesome.min.css">
+  <link type="text/css" href="assets/JS/pines-notify/pnotify.css" rel="stylesheet">
+  <link type="text/css" href="assets/JS/datatables/dataTables.bootstrap.css" rel="stylesheet">                    <!-- Bootstrap Support for Datatables -->
+  <link type="text/css" href="assets/JS/datatables/dataTables.themify.css" rel="stylesheet">
+  <link type="text/css" href="assets/CSS/animate.css" rel="stylesheet">
 
-
+  <link type="text/css" href="assets/JS/pines-notify/pnotify.css" rel="stylesheet">
 
 </head>
-<body>
+<body Style="font-family: 'Lato', sans-serif;">
 
 
 
 
- <app-root2>
+ <app-root2 >
 
       <div class="progress" style="height: 3px;"  >
-           <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+           <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
 
+
+
+   <i class="fa fa-spinner fa-pulse fa-3x fa-fw " style="margin-left: 50%;margin-top: 20%;color : #669cc0;"></i>
  </app-root2>
 
 
@@ -37,6 +45,8 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+ <script type="text/javascript" src="assets/JS/pines-notify/pnotify.min.js"></script>
 
  <script>
   $(function (){
@@ -50,6 +60,23 @@
     }
     timer(0);
 });
+</script>
+
+ <script>
+
+     function pine(){
+                    new PNotify({
+                        title: '',
+                        text: "  <p class='animated tada' >  <b> <Center> <i class='fa fa-info-circle' aria-hidden='true'></i> Nouveau produit dans le panier </Center> </b></p> ",
+                        type: 'success',
+                        width: '130px',
+                        animate_speed: 'fast'
+
+                    });
+                };
+
+
+
 </script>
 
 

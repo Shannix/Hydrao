@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserService {
 
-private isUserLoggedIn;
-private username  ;
+public isUserLoggedIn;
+public username  ;
 
 
   constructor() {

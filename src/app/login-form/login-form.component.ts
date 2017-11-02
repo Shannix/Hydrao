@@ -1,9 +1,9 @@
 
 import { Component , OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { PersistenceService } from 'angular-persistence';
+import {BrowserModule} from '@angular/platform-browser';
 import { UserService} from '../user.service';
+import {LocalStorageService, SessionStorageService,LocalStorage, SessionStorage} from 'ng2-webstorage';
 
 
 @Component({
@@ -19,35 +19,53 @@ export class LoginFormComponent implements OnInit {
 
 
 
-
-  constructor(private router:Router , private user:UserService ,private persistenceService: PersistenceService) {
-
-  this.persistenceService.set('session', 'false');
-
-  }
-
-  ngOnInit() { }
+  constructor( private localSt:LocalStorageService , private router:Router ) { }
 
 
 
-loginUser(e){
 
-e.preventDefault();
 
-console.log(e);
+
+  ngOnInit() {
+
+
+   }
+
+
+
+@LocalStorage()
+public StateLoggedIn ;
+
+@LocalStorage()
+public Username ;
+
+@LocalStorage()
+public IdUser ;
+
+
+@LocalStorage()
+public Eshopping ;
+
+ public LoggedIn = this.localSt.retrieve('StateLoggedIn');
+
+
+   loginUser(e){
+
+    e.preventDefault();
 
   	let username = e.target.elements[0].value;
   	let password = e.target.elements[1].value;
 
-    if(username == 'admin' && password == 'admin') {
-this.persistenceService.set('session', 'true');
-this.user.setUserLoggedIn();
-this.router.navigate(['dashboard']);
-this.user.setUsername("haha");
-console.log(this.user.getUsername());
+    if( password == 'admin') {
 
-  this.persistenceService.set('myName', 'scott');
-  console.log(this.persistenceService.get('myName'));
+
+
+      this.localSt.store('StateLoggedIn', 'true' );
+      this.localSt.store('Username', username );
+      this.localSt.store('IdUser', 1993 );
+      this.router.navigate(['dashboard']);
+
+
       	}
 
 
@@ -55,5 +73,21 @@ console.log(this.user.getUsername());
 
 
 
+
+ }
+
+
+
+export class commande {
+
+ constructor(
+	public idpr: number,
+  public idus : number,
+	public name : string,
+  public prixmin: number,
+  public prixmax: number,
+  public price : number
+
+  ) { }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService} from '../user.service';
-import { PersistenceService } from 'angular-persistence';
+
+import {LocalStorageService, SessionStorageService,LocalStorage, SessionStorage} from 'ng2-webstorage';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import { PersistenceService } from 'angular-persistence';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private user:UserService , private persistenceService: PersistenceService) { }
+  constructor( private localSt:LocalStorageService ) { }
 
 
   ngOnInit() {

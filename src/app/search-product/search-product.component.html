@@ -14,6 +14,55 @@
 
 
   <div class="row">
+    <div class="col-sm-3">
+
+      <div   style="height: 90%; margin: 3%; background-color: #323232;  border-radius: 10px;">
+        <br>
+
+          <div class="info-tile tile-black" style="visibility: visible; opacity: 1; display: block; transform: translateY(0px);color:	white;">
+            <div class="tile-icon " style="margin: 3%;"> <H5>  <i class="fa fa-eur "></i> Prix </H5> </div>
+
+            <div class="row" style="margin: 1%;">
+              <div class="col">
+                <input type="number" class="form-control" value="0">
+              </div>
+              <span class="input-group-addon">€</span>
+              <div class="col">
+                <input type="number" class="form-control" placeholder="Max">
+              </div>
+            </div>
+
+            <hr Style="background-color:white;">
+
+            <div class="tile-icon " style="margin: 3%;"><H5> <i class="fa fa-globe "></i> Code postale </H5> </div>
+
+            <div class="row">
+              <div class="col-sm-11" style="margin: 4%;">
+                <input type="number" class="form-control" value="38000">
+              </div>
+
+            </div>
+
+            <hr Style="background-color:white;">
+
+            <div class="tile-icon " style="margin: 3%;"><H5> <i class="fa fa-envelope" aria-hidden="true"></i> Élargir ma recherche </H5> </div>
+
+            <p style="margin: 3%;"> Ne passez à côté d'aucune annonce ! </p>
+            <br>
+
+            <div style="text-align: center;"><button type="button" class="btn btn-light" >Créer une alerte</button></div>
+
+            <div class="tile-body"><span></span></div>
+            <div class="tile-footer"><span class="text-success"> <!--i class="fa fa-level-up"></i--></span></div>
+          </div>
+
+        <br>
+      </div>
+
+
+
+
+    </div>
 
 
   <div  *ngFor="let prod of Products"  class="col-sm-4">
@@ -21,7 +70,7 @@
   <div class="card-body bg-light">
     <h4 class="card-title">{{ prod.name }} </h4>
     <p class="card-text" Style="height: 100px;">  {{ prod.description }}         </p>
-    <p class="card-text"> Compris entre <span class="badge badge-dark">  {{ prod.prixmin }} € </span> & <span class="badge badge-danger">{{ prod.prixmax }} €  </span>   <a href="#" class="pull-right"> <i class="fa fa-plus-square fa-2x" Style="color: #66c0b7;" aria-hidden="true"></i> </a>  </p>
+    <p class="card-text"> Compris entre <span class="badge badge-dark">  {{ prod.prixmin }} € </span> & <span class="badge badge-danger">{{ prod.prixmax }} €  </span>   <a (click)="addShop(1993)"  onclick='pine();' class="pull-right"> <i class="fa fa-plus-square fa-2x" Style="color: #66c0b7;" aria-hidden="true"></i> </a>  </p>
 
   </div>
   <div class="card-footer text-muted">
@@ -33,12 +82,10 @@
 
 
 
+  </div>
 
 
 
 
 
 
-
-
-</div>

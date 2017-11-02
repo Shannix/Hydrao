@@ -3,26 +3,28 @@ import { NgModel } from '@angular/forms';
 import {NgForm} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService} from '../user.service';
-import { PersistenceService } from 'angular-persistence';
+import {LocalStorageService, SessionStorageService,LocalStorage, SessionStorage} from 'ng2-webstorage';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers: [ UserService ]
 })
 
 
 
 export class HeaderComponent implements OnInit {
 
-  constructor( private router:Router , private user:UserService , private persistenceService: PersistenceService ) {   }
+  constructor( private localSt:LocalStorageService, private router:Router   ) {   }
 
   ngOnInit() {
 
   }
 
- UserName : string = this.persistenceService.get('myName');
-
+ public UserName : string = this.localSt.retrieve('Username');
+ public LoggedIn = this.localSt.retrieve('StateLoggedIn');
 
 SearchUser(e){
          e.preventDefault();
@@ -31,6 +33,13 @@ SearchUser(e){
 }
 
 
+Logout = function(){
+ this.localSt.store('StateLoggedIn', 'false' );
+}
+
+GoPanier = function(){
+this.router.navigate(['shop']);
+}
 
 
 }

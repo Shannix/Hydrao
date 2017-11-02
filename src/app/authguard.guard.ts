@@ -3,22 +3,29 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angul
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import {UserService} from './user.service';
-import { PersistenceService } from 'angular-persistence';
+
+
+import {LocalStorageService, SessionStorageService,LocalStorage, SessionStorage} from 'ng2-webstorage';
+
+
 
 @Injectable()
 export class AuthguardGuard implements CanActivate {
 
-constructor ( private user: UserService , private router:Router , private persistenceService: PersistenceService ){}
+constructor (   private router:Router ,private localSt:LocalStorageService ){}
 
+public LoggedIn = this.localSt.retrieve('StateLoggedIn');
 
  canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-return true;
-//if ( this.persistenceService.get('session') == 'true' ) { return true; }else{
- //if(this.user.getUserLoggedIn()){ return true; }else{
-   //   this.router.navigate(['']);
-     // return false; }
+
+
+if ( this.LoggedIn == 'true' ) { return true; }
+      else{
+      this.router.navigate(['']);
+      return false;
+      }
 
 
 

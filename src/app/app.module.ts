@@ -16,7 +16,14 @@ import { SearchProductComponent } from './search-product/search-product.componen
 import {AuthguardGuard} from './authguard.Guard';
 import { UserService} from './user.service';
 import { PersistenceModule } from 'angular-persistence';
+import { ShoppingComponent } from './shopping/shopping.component';
 
+import {Ng2Webstorage} from 'ng2-webstorage';
+import { SubscribeComponent } from './subscribe/subscribe.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NewProductComponent } from './new-product/new-product.component';
+import { OffersComponent } from './offers/offers.component';
+import { MyPurchasesComponent } from './my-purchases/my-purchases.component';
 
 
 @NgModule({
@@ -26,13 +33,38 @@ import { PersistenceModule } from 'angular-persistence';
     FooterComponent,
     LoginFormComponent,
     DashboardComponent,
-    SearchProductComponent
+    SearchProductComponent,
+    ShoppingComponent,
+    SubscribeComponent,
+    ProfileComponent,
+    NewProductComponent,
+    OffersComponent,
+    MyPurchasesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     PersistenceModule,
+    Ng2Webstorage,
     RouterModule.forRoot([
+{
+path: 'newproduct',
+canActivate : [AuthguardGuard],
+component : NewProductComponent
+},
+{
+path: 'mypurchases',
+canActivate : [AuthguardGuard],
+component : MyPurchasesComponent
+},
+{path: 'offers/:id',
+canActivate : [AuthguardGuard],
+component: OffersComponent
+},
+{
+path: 'shop',
+component : ShoppingComponent
+},
 {
 path: '',
 component : LoginFormComponent
@@ -44,14 +76,22 @@ component : DashboardComponent
 },
 {
 path: 'search',
-canActivate : [AuthguardGuard],
 component : SearchProductComponent
+},
+{
+path: 'profile',
+canActivate : [AuthguardGuard],
+component : ProfileComponent
+},
+{
+path: 'subscribe',
+component : SubscribeComponent
 },
 { path: '**', redirectTo: '' }
 
 ])
   ],
-  //providers: [UserService, AuthguardGuard ],
+
 providers: [UserService, AuthguardGuard ],
   bootstrap: [AppComponent]
 })
