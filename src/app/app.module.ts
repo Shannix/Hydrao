@@ -24,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { OffersComponent } from './offers/offers.component';
 import { MyPurchasesComponent } from './my-purchases/my-purchases.component';
+import { NewAdComponent } from './new-ad/new-ad.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { MyPurchasesComponent } from './my-purchases/my-purchases.component';
     ProfileComponent,
     NewProductComponent,
     OffersComponent,
-    MyPurchasesComponent
+    MyPurchasesComponent,
+    NewAdComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,11 @@ path: 'shop',
 component : ShoppingComponent
 },
 {
-path: '',
+path: 'newad',
+component : NewAdComponent
+},
+{
+path: 'login',
 component : LoginFormComponent
 },
 {
@@ -75,7 +81,7 @@ canActivate : [AuthguardGuard],
 component : DashboardComponent
 },
 {
-path: 'search',
+path: '',
 component : SearchProductComponent
 },
 {

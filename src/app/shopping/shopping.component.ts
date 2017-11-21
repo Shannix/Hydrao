@@ -51,7 +51,7 @@ public Panier =  this.localSt.retrieve('Eshopping');
 
 
 DeleteShop = function(id){
-;
+
  this.localSt.store('Eshopping', this.Panier.splice(id,1) );
 }
 

@@ -2,6 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light " STYLE="background-color: #323232">
   <a class="navbar-brand" href="#">
     <img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+    <i style="color: white;" class="fa fa-stack-exchange fa-2x " aria-hidden="true"></i>
   </a>
   <a   class="navbar-brand" href="#"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,34 +13,22 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item active">
-        <a class="nav-link " style="color:white;" routerLink="/"  >Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link " style="color:white;" routerLink="/"  > <i class="fa fa-home" aria-hidden="true"></i> Accueil <span class="sr-only">(current)</span></a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" style="color:white;" routerLink="/search"  >Produits</a>
-      </li>
+
 
       <li class="nav-item">
-        <a class="nav-link" *ngIf="LoggedIn=='true'" style="color:white;" routerLink="/dashboard"  >Dashboard</a>
+        <a class="nav-link" *ngIf="LoggedIn=='true'" style="color:white;" routerLink="/dashboard" > <i class="fa fa-tachometer" aria-hidden="true"></i> Tableau de bord </a>
+      </li>
+
+
+
+      <li class="nav-item">
+        <a class="nav-link"  style="color:white;" routerLink="/newad" > <i class="fa fa-plus-circle " aria-hidden="true"></i> Déposer une annonce </a>
       </li>
 
         <li>
-
-
-          <form (submit)="SearchUser($event)" class="form-inline">
-          <div class="col-lg-12">
-            <div class="input-group">
-              <span class="input-group-addon">38000</span>
-              <input type="text" class="form-control" placeholder="Recherche..." aria-label="">
-              <span class="input-group-btn">
-        <button  (click)="GoSearch()" class="btn btn-secondary animated tada" type="button">Go!</button>
-              </span>
-            </div>
-          </div>
-          </form>
-
-
-
 
 
         </li>
@@ -48,11 +37,11 @@
 
 
 
-    <a  href="#"  routerLink="shop"   class="pull-right" style="margin-right: 3%;"> <span class="badge badge-pill badge-secondary">4</span> <i class="fa fa-shopping-basket fa-2x" Style="color: #e7e7e8;" aria-hidden="true"></i>  </a>
+    <a  href="#"  routerLink="shop"   class="pull-right" style="margin-right: 3%;"> <span class="badge badge-pill badge-secondary"> {{ NumberShop }} </span> <i class="fa fa-shopping-basket fa-2x" Style="color: #e7e7e8;" aria-hidden="true"></i>  </a>
 
     <div *ngIf="LoggedIn=='false'">
 
-      <a routerLink="/"  href="#" class="pull-right" >  <i class="fa fa-sign-in fa-2x" Style="color : #d2d7bb;" aria-hidden="true"></i>  </a>
+      <a  href="login"  class="pull-right" >  <i class="fa fa-sign-in fa-2x" Style="color : #d2d7bb;" aria-hidden="true"></i>  </a>
 
 
     </div>
@@ -60,7 +49,7 @@
 
 
     <div *ngIf="LoggedIn=='true'">
-      <a (click)="Logout()" href="#" class="pull-right" style="color:white;" >   {{  UserName }}, Logout  <i class="fa fa-sign-out " Style="color : 	#a48c60;" aria-hidden="true"></i>  </a>
+      <a (click)="Logout()" href="#" class="pull-right" style="color:white;" >  Bonjour {{  UserName }}, Se deconnecter  <i class="fa fa-sign-out " Style="color : 	#a48c60;" aria-hidden="true"></i>  </a>
     </div>
 
 
